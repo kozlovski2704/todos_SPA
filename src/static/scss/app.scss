@@ -1,0 +1,17 @@
+
+@import "./../fonts/stylesheet.css";
+@import "~bootstrap/scss/bootstrap";
+$primary-color: #2a2c2e;
+body {
+  background: $primary-color;  
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  
+    .menu {
+    background: #ddd;
+    }
+}

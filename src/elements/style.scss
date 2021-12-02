@@ -1,0 +1,113 @@
+/* .add{
+    margin-bottom: 15px;
+  } */
+  .filter{
+    margin-bottom: 15px;
+  }
+  .comfilter{
+    margin-bottom: 15px;
+    width: 300px;    
+  }
+
+footer{
+ 
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(15, 15, 15);
+  position: fixed;  
+  bottom: 0;
+  left: 0;
+  width: 100%;
+ 
+ 
+  
+}
+
+  
+  .container {
+    font-family: "Oswald", sans-serif;
+    font-style: italic;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    max-width: 152px;
+  }
+  
+  .glitch {
+    color:  #57bcd8;
+    position: relative;
+    font-size: 17px;   
+    animation: glitch 5s 5s infinite;
+  }
+  
+  .glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0px;
+    text-shadow: -1px 0 magenta;
+    // background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+  }
+  
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0px;
+    text-shadow: 1px 0 lightgreen;
+    // background: black;
+    overflow: hidden;
+    top: 0;
+    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+  }
+  
+ 
+  
+  @keyframes noise-1 {
+    $steps: 30;
+    @for $i from 1 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+  
+  @keyframes noise-2 {
+    $steps: 30;
+    @for $i from 0 through $steps {
+      #{percentage($i*(1/$steps))} {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        clip-path: inset(#{$top}px 0 #{$bottom}px 0);
+      }
+    }
+  }
+  
+  .scanlines {
+    overflow: hidden;
+    mix-blend-mode: difference;
+  }
+   
+  
+  @keyframes fudge {
+    from {
+      transform: translate(0px, 0px);
+    }
+    to {
+      transform: translate(0px, 2%);
+    }
+  }
+  
+  .glow {
+    @extend .glitch;
+    text-shadow: 0 0 1000px rgb(223, 191, 191);
+    color: transparent;
+    position: absolute;
+    top: 0;
+  }
+  
+ 
